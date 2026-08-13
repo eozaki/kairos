@@ -5,12 +5,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-    private ExecutorService pool = Executors.newFixedThreadPool(5);
+    private ExecutorService pool;
+    private final ArgValidator args;
 
-    public Server() {}
+    public Server(ArgValidator args) {
+        this.args = args;
+        this.pool = Executors.newFixedThreadPool(args.getMaxThreads());
+    }
 
     public void run() throws IOException {
-        ServerSocket ss = new ServerSocket(3000);
+        ServerSocket ss = new ServerSocket(args.getPort());
 
         try {
             while(true) {
