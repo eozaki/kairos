@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Bem vindo ao kairós");
 
-        try{
-            ArgValidator serverArgs = new ArgValidator( args );
+        try {
+            ArgParser serverArgs = new ArgParser(args);
             Server s = new Server(serverArgs);
 
             try {
@@ -13,11 +13,8 @@ public class Main {
             } catch (IOException e) {
                 System.out.println("Fatal error");
             }
+        } catch(Exception e) {
+            throw new RuntimeException(e);
         }
-        catch( Exception e )
-        {
-            throw new RuntimeException( e );
-        }
-
     }
 }

@@ -6,9 +6,9 @@ import java.util.concurrent.Executors;
 
 public class Server {
     private ExecutorService pool;
-    private final ArgValidator args;
+    private final ArgParser args;
 
-    public Server(ArgValidator args) {
+    public Server(ArgParser args) {
         this.args = args;
         this.pool = Executors.newFixedThreadPool(args.getMaxThreads());
     }
