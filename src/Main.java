@@ -13,7 +13,7 @@ public class Main {
             } catch (IOException e) {
                 System.out.println("Fatal error");
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

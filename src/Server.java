@@ -19,12 +19,12 @@ public class Server {
         ServerSocket ss = new ServerSocket(args.getPort());
 
         try {
-            while(true) {
+            while (true) {
                 Socket socket = ss.accept();
                 ClientHandler ch = new ClientHandler(socket);
                 pool.execute(ch);
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Algo de errado não está certo");
         } finally {
             ss.close();
